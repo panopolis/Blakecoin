@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2013-2014 The Blakecoin developers
+// Copyright (c) 2013-2018 The Blakecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -4590,7 +4590,7 @@ void static BitcoinMiner(CWallet *pwallet)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    try { loop {
+    try { while (true) {
         while (vNodes.empty())
             MilliSleep(1000);
 
@@ -4613,7 +4613,7 @@ void static BitcoinMiner(CWallet *pwallet)
         int64 nStart = GetTime();
         uint256 hash;
         // unsigned int nHashesDone = 0;
-        loop
+        while (true)
         {
 //            unsigned int nNonceFound;
 
